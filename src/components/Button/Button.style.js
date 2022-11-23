@@ -1,14 +1,33 @@
 import styled, { css } from "styled-components";
 
-export const ButtonStyle = styled.button``;
-
-export const ButtonPrimaryStyle = styled.button`
+export const ButtonStyle = styled.button.attrs(() => ({
+    type: "button",
+}))`
     position: relative;
-    padding: 1.2rem 4.8rem;
     line-height: 1.8;
+    padding: 0.8rem 4rem;
+    border: 2px solid var(--clr-primary);
+    border-radius: 2rem;
+    color: var(--clr-text-tint);
+    ${(props) =>
+        props.top || props.bottom || props.right || props.left
+            ? css`
+                  position: absolute;
+                  top: ${props.top || "auto"};
+                  left: ${props.left || "auto"};
+                  right: ${props.right || "auto"};
+                  bottom: ${props.bottom || "auto"};
+                  margin: auto;
+              `
+            : ""};
+`;
+
+export const ButtonPrimaryStyle = styled(ButtonStyle)`
+    color: var(--clr-text-white);
     background: var(--clr-primary);
     border: none;
     border-radius: 4rem;
+    padding: 1.2rem 4.8rem;
     letter-spacing: 0.2em;
     margin-top: 5rem;
     &::after {
@@ -30,20 +49,24 @@ export const ButtonPrimaryStyle = styled.button`
             var(--clr-primary-dark-80);
         transition: all 0.2s;
     }
-
     &:hover&::after {
         text-shadow: 0 3px rgba(255, 255, 255, 0.2);
         top: -3px;
     }
-
-    ${(props) =>
-        props.top || props.bottom || props.right || props.left
-            ? css`
-                  position: absolute;
-                  top: ${props.top || "auto"};
-                  left: ${props.left || "auto"};
-                  right: ${props.right || "auto"};
-                  bottom: ${props.bottom || "auto"};
-              `
-            : ""}
+    &:disabled {
+        background: var(--clr-disabled);
+    }
+    &:disabled::after {
+        background: linear-gradient(
+                0deg,
+                rgba(238, 238, 238, 0) 0%,
+                #dddddd 100%,
+                #eeeeee 100%
+            ),
+            #555555;
+    }
+    &:disabled:hover::after {
+        text-shadow: 0 5px rgba(255, 255, 255, 0.2);
+        top: -5px;
+    }
 `;

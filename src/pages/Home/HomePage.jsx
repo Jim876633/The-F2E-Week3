@@ -6,8 +6,6 @@ import {
     xMoveVariants,
     yMoveVariants,
 } from "../../animations/animate";
-import { ButtonPrimary } from "../../components/Button/Button";
-import Card from "../../components/Card/Card";
 import Image from "../../components/Image/Image";
 import {
     bg_dark_b,
@@ -23,6 +21,8 @@ import {
 import { HomePageStyle, TagWrap, TextWrap, TitleWrap } from "./HomePage.style";
 import data from "../../constants/data.json";
 import { useNavigate } from "react-router-dom";
+import { CardStyle } from "../../components/Card/Card.style";
+import { ButtonPrimaryStyle } from "../../components/Button/Button.style";
 
 const { p1, p2 } = data.homePage;
 const imageListFont = [
@@ -119,17 +119,9 @@ const HomePage = () => {
         setStartAction(true);
     };
 
-    useEffect(() => {
-        let timeId;
-        if (startAction) {
-            timeId = setTimeout(() => {
-                navigate("/todoList");
-            }, 2000);
-        }
-        return () => {
-            clearTimeout(timeId);
-        };
-    }, [startAction]);
+    const changePageHandler = () => {
+        navigate("/todoList");
+    };
 
     useEffect(() => {
         return () => {
@@ -145,10 +137,10 @@ const HomePage = () => {
                     <Image
                         key={item.id}
                         {...item}
-                        as={motion.div}
                         initial="initial"
                         animate={!startAction || "move"}
                         transition={{ duration: 0.5, delay: 0.8 }}
+                        complete={changePageHandler}
                     />
                 ))}
             </div>
@@ -157,7 +149,6 @@ const HomePage = () => {
                     <Image
                         key={item.id}
                         {...item}
-                        as={motion.div}
                         initial="initial"
                         animate={!enterAction || "move"}
                         transition={{ duration: 0.5, delay: 0.8 }}
@@ -183,13 +174,16 @@ const HomePage = () => {
                             left="10%"
                         />
                         <h2>深入敏捷の村一探究竟</h2>
-                        <ButtonPrimary title="接受挑戰" click={enterHandler}>
+                        <ButtonPrimaryStyle
+                            title="接受挑戰"
+                            onClick={enterHandler}
+                        >
                             接受挑戰
-                        </ButtonPrimary>
+                        </ButtonPrimaryStyle>
                     </TitleWrap>
                 ) : null}
                 {enterAction && !startAction ? (
-                    <Card
+                    <CardStyle
                         key="card"
                         position="center"
                         top="-10%"
@@ -227,19 +221,19 @@ const HomePage = () => {
                             >
                                 {p2}
                             </motion.p>
-                            <ButtonPrimary
+                            <ButtonPrimaryStyle
                                 title="接受挑戰"
                                 bottom="-10rem"
                                 left="50%"
-                                click={startHandler}
+                                onClick={startHandler}
                                 as={motion.button}
                                 variants={opacityVariants}
                                 transition={{ duration: 0.2 }}
                             >
                                 接受挑戰
-                            </ButtonPrimary>
+                            </ButtonPrimaryStyle>
                         </TextWrap>
-                    </Card>
+                    </CardStyle>
                 ) : null}
             </AnimatePresence>
         </HomePageStyle>

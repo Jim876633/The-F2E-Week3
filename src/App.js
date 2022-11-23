@@ -10,6 +10,7 @@ import Footer from "./components/Footer/Footer";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
 import { AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
+import BackLayout from "./layouts/BackLayout";
 
 function App() {
     const location = useLocation();
@@ -20,12 +21,17 @@ function App() {
             <AnimatePresence>
                 <Routes key={location.pathname} location={location}>
                     <Route path="/" element={<HomePage />} />
-                    <Route path="todoList" element={<TodoListPage />} />
-                    <Route path="sprintPlan" element={<SprintPlanPage />} />
-                    <Route path="sprintTodo" element={<SprintTodoPage />} />
-                    <Route path="sprintIntro" element={<SprintIntroPage />} />
-                    <Route path="retro" element={<RetroPage />} />
-                    <Route path="finish" element={<FinishPage />} />
+                    <Route element={<BackLayout />}>
+                        <Route path="todoList" element={<TodoListPage />} />
+                        <Route path="sprintPlan" element={<SprintPlanPage />} />
+                        <Route path="sprintTodo" element={<SprintTodoPage />} />
+                        <Route
+                            path="sprintIntro"
+                            element={<SprintIntroPage />}
+                        />
+                        <Route path="retro" element={<RetroPage />} />
+                        <Route path="finish" element={<FinishPage />} />
+                    </Route>
                 </Routes>
             </AnimatePresence>
             <Footer />

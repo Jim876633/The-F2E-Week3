@@ -11,6 +11,9 @@ const GlobalStyle = createGlobalStyle`
 
     --clr-primary: rgb(0,255,224);
     --clr-primary-0: rgba(0,255,224,0);
+    --clr-primary-10: rgba(0,255,224,0.1);
+    --clr-primary-20: rgba(0,255,224,0.2);
+    --clr-primary-30: rgba(0,255,224,0.3);
     --clr-primary-80: rgba(0,255,224,0.8);
     --clr-primary-95: rgba(0,255,224,0.95);
     --clr-primary-dark: rgb(0,141,150);
@@ -31,9 +34,10 @@ const GlobalStyle = createGlobalStyle`
 
     --clr-bg-dark:rgb(10,13,20);
     --clr-bg-dark-80:rgba(10,13,20,0.8);
-    --clr-bg-drak-60: rgba(10,13,20,0.6);
+    --clr-bg-dark-60: rgba(10,13,20,0.6);
     --clr-bg-transition: rgba(28,50,69,0.6);
     --clr-danger: rgb(255,0,0);
+    --clr-disabled: #BBBBBB;
 
 
 

@@ -74,6 +74,8 @@ import img_time_5 from "../assets/images/Attached pic/time_5.png";
 import img_time_8 from "../assets/images/Attached pic/time_8.png";
 import img_time_13 from "../assets/images/Attached pic/time_13.png";
 import img_time_21 from "../assets/images/Attached pic/time_21.png";
+import arrow from "../assets/images/Attached pic/arrow.svg";
+import hand from "../assets/images/Attached pic/hand.svg";
 
 //=======================================================================
 //GIF
@@ -138,6 +140,8 @@ export {
     img_time_8,
     img_time_13,
     img_time_21,
+    arrow,
+    hand,
     gif_loading,
     gif_po,
     gif_sm,

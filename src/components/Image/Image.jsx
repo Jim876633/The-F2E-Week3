@@ -11,13 +11,15 @@ const Image = ({
     right,
     left,
     fit,
-    as,
+    style,
     variants,
     initial,
     animate,
     custom,
     transition,
     transitionend,
+    complete,
+    text,
 }) => {
     return (
         <ImageWrap
@@ -29,12 +31,15 @@ const Image = ({
             right={right}
             left={left}
             fit={fit}
+            style={style}
             variants={variants}
             initial={initial}
             animate={animate}
             custom={custom}
             transition={transition}
             onTransitionEnd={transitionend}
+            onAnimationComplete={complete}
+            data-title={text}
         >
             <img src={src} alt={alt || ""} />
         </ImageWrap>

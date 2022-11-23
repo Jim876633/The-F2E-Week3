@@ -10,4 +10,5 @@ export const FooterStyle = styled.footer`
     font-size: var(--fz-footer);
     color: var(--clr-primary-dark);
     background-color: var(--clr-bg-dark-80);
+    z-index: 20;
 `;
