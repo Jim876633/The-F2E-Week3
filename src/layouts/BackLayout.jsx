@@ -4,8 +4,9 @@ import styled from "styled-components";
 import { bg_village } from "../shared/ImageSource";
 
 const BackgroundStyle = styled.main`
-    width: 100%;
-    height: 100%;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
     background: url(${bg_village});
     background-repeat: no-repeat;
     background-size: cover;

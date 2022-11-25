@@ -57,7 +57,9 @@ import title_team2 from "../assets/images/role/title_team2.svg";
 //=======================================================================
 
 import img_sprint from "../assets/images/Attached pic/img_sprint.png";
-import img_sprint_plan from "../assets/images/Attached pic/img_sprintPlan.png";
+import img_sprint_plan from "../assets/images/Attached pic/planning_sprint.png";
+import img_sprint_planPoint from "../assets/images/Attached pic/planning_point.png";
+import img_sprint_team from "../assets/images/Attached pic/planning_team.png";
 import img_jira from "../assets/images/Attached pic/jira.png";
 import img_jira_w from "../assets/images/Attached pic/jira_w.png";
 import img_sprint_daily from "../assets/images/Attached pic/sprint_daily.png";
@@ -124,6 +126,8 @@ export {
     title_team2,
     img_sprint,
     img_sprint_plan,
+    img_sprint_planPoint,
+    img_sprint_team,
     img_jira,
     img_jira_w,
     img_sprint_daily,

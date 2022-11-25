@@ -16,9 +16,9 @@ import {
     ExampleText,
     TitleWrap,
 } from "./Card.style";
-import DragCard from "./DragCard";
+import TeachDragCard from "./TeachDragCard";
 
-const ListCard = ({
+const TeachCard = ({
     dragList,
     dragAction,
     title,
@@ -38,6 +38,7 @@ const ListCard = ({
             bottom={bottom}
             left={left}
             right={right}
+            style={{ alignSelf: "flex-start" }}
         >
             <TitleWrap>
                 <h2>{title}</h2>
@@ -78,7 +79,7 @@ const ListCard = ({
                     </ExampleText>
                 </>
             ) : null}
-            <Droppable droppableId="drop-todoList">
+            <Droppable droppableId="drop-teachTodoList">
                 {(provided, snapshot) => (
                     <DropWrap
                         {...provided.droppableProps}
@@ -91,11 +92,11 @@ const ListCard = ({
                             <div></div>
                         </DragItemWrap>
                         {dragList.map((item, i) => (
-                            <DragCard
+                            <TeachDragCard
                                 item={item}
                                 key={item.id}
                                 index={i}
-                                dropId="drop-todoList"
+                                dropId="drop-teachTodoList"
                             />
                         ))}
                         {provided.placeholder}
@@ -106,4 +107,4 @@ const ListCard = ({
     );
 };
 
-export default ListCard;
+export default TeachCard;

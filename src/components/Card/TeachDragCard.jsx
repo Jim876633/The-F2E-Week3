@@ -2,12 +2,12 @@ import React from "react";
 import { Draggable } from "react-beautiful-dnd";
 import { DragItem, EmptyItem } from "./Card.style";
 
-const DragCard = ({ item, index, dropId }) => {
+const TeachDragCard = ({ item, index, dropId }) => {
     return (
         <Draggable draggableId={item.dragId} index={index}>
             {(provided, snapshot) => {
                 let transform = {};
-                if (!snapshot.isDragging && dropId !== "drop-todoList") {
+                if (!snapshot.isDragging && dropId !== "drop-teachTodoList") {
                     transform = { transform: "none" };
                 }
                 return item.isDrag ? (
@@ -34,4 +34,4 @@ const DragCard = ({ item, index, dropId }) => {
     );
 };
 
-export default DragCard;
+export default TeachDragCard;

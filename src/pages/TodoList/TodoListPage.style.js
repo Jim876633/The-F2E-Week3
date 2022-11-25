@@ -46,6 +46,8 @@ export const BottomWrap = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 export const RoleWrap = styled.div`
@@ -80,6 +82,7 @@ export const DropSourceWrap = styled.div`
     display: flex;
     flex-direction: column;
     width: 35%;
+    height: 100%;
     justify-content: center;
     & > div {
         position: absolute;

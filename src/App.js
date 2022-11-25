@@ -18,22 +18,17 @@ function App() {
     return (
         <>
             <ProgressBar location={location} />
-            <AnimatePresence>
-                <Routes key={location.pathname} location={location}>
-                    <Route path="/" element={<HomePage />} />
-                    <Route element={<BackLayout />}>
-                        <Route path="todoList" element={<TodoListPage />} />
-                        <Route path="sprintPlan" element={<SprintPlanPage />} />
-                        <Route path="sprintTodo" element={<SprintTodoPage />} />
-                        <Route
-                            path="sprintIntro"
-                            element={<SprintIntroPage />}
-                        />
-                        <Route path="retro" element={<RetroPage />} />
-                        <Route path="finish" element={<FinishPage />} />
-                    </Route>
-                </Routes>
-            </AnimatePresence>
+            <Routes location={location}>
+                <Route path="/" element={<HomePage />} />
+                <Route element={<BackLayout />}>
+                    <Route path="todoList" element={<TodoListPage />} />
+                    <Route path="sprintPlan" element={<SprintPlanPage />} />
+                    <Route path="sprintTodo" element={<SprintTodoPage />} />
+                    <Route path="sprintIntro" element={<SprintIntroPage />} />
+                    <Route path="retro" element={<RetroPage />} />
+                    <Route path="finish" element={<FinishPage />} />
+                </Route>
+            </Routes>
             <Footer />
         </>
     );

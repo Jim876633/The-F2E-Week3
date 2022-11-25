@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
     --clr-primary-10: rgba(0,255,224,0.1);
     --clr-primary-20: rgba(0,255,224,0.2);
     --clr-primary-30: rgba(0,255,224,0.3);
+    --clr-primary-70: rgba(0,255,224,0.7);
     --clr-primary-80: rgba(0,255,224,0.8);
     --clr-primary-95: rgba(0,255,224,0.95);
     --clr-primary-dark: rgb(0,141,150);
@@ -39,23 +40,26 @@ const GlobalStyle = createGlobalStyle`
     --clr-danger: rgb(255,0,0);
     --clr-disabled: #BBBBBB;
 
+    --clr-point-13: #ff7a00;
+    --clr-point-21:#FF0000;
+
 
 
     /*================================================================ */
     /*Linear gradient */
     /*================================================================ */
 
-    --linear-role-sm:   linear-gradient(0deg,
+    --linear-role-sm:   linear-gradient(180deg,
             rgba(211, 85, 255, 0) 0%,
           rgba(211, 85, 255, 0.05) 60%,
           rgba(211, 85, 255, 0.2) 80%,
           rgba(211, 85, 255, 0.6) 100%);
-    --linear-role-team1: linear-gradient(0deg,
+    --linear-role-team1: linear-gradient(180deg,
            rgba(255, 199, 0, 0) 0%,
         rgba(255, 199, 0, 0.05) 60%,
         rgba(255, 199, 0, 0.2) 80%,
         rgba(255, 199, 0, 0.6) 100%);
-    --linear-role-team2: linear-gradient(0deg,
+    --linear-role-team2: linear-gradient(180deg,
            rgba(255, 122, 0, 0) 0%,
         rgba(255, 122, 0, 0.05) 60%,
         rgba(255, 122, 0, 0.2) 80%,
@@ -94,6 +98,7 @@ html{
     font-weight: 400;
     color: var(--clr-text-white);
     letter-spacing: 0.05em;
+    user-select:none;
 }
 button{
     cursor: pointer;
@@ -126,10 +131,15 @@ p{
 body{
     overflow: hidden;
 }
-section{
+main{
     position: relative;
     width:max(100vw,100rem);
     height:max(100vh,60rem);
+}
+section{
+    position: relative;
+    width:100%;
+    height:100%;
 }
 @font-face {
         font-family: globalfont;

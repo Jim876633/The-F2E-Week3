@@ -15,6 +15,7 @@ const Image = ({
     variants,
     initial,
     animate,
+    exit,
     custom,
     transition,
     transitionend,
@@ -35,6 +36,7 @@ const Image = ({
             variants={variants}
             initial={initial}
             animate={animate}
+            exit={exit}
             custom={custom}
             transition={transition}
             onTransitionEnd={transitionend}

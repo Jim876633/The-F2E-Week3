@@ -36,6 +36,7 @@ export const ImageWrap = styled.div`
                       font-size: var(--fz-talk-lg);
                       transform: translateY(-4px);
                       color: var(--clr-bg-dark);
+                      text-transform: uppercase;
                   }
               `
             : ""}

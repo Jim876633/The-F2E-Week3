@@ -31,9 +31,9 @@ import {
     ButtonStyle,
 } from "../../components/Button/Button.style";
 import TalkCard from "../../components/Card/TalkCard";
-import ListCard from "../../components/Card/ListCard";
+import TeachCard from "../../components/Card/TeachCard";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
-import DragCard from "../../components/Card/DragCard";
+import TeachDragCard from "../../components/Card/TeachDragCard";
 import { useNavigate } from "react-router-dom";
 
 const { p1, p2, p3, p4, p5, p6, todoList } = data.todoListPage;
@@ -57,7 +57,7 @@ const TodoListPage = () => {
 
     const [dragList, setDragList] = useState(initialDragList);
 
-    const isCanClickAllView = useRef(false);
+    const allowClickViewRef = useRef(false);
 
     const backdropRef = useRef("top");
 
@@ -70,30 +70,30 @@ const TodoListPage = () => {
     const navigate = useNavigate();
 
     const allViewClickHandler = () => {
-        if (!isCanClickAllView.current) return;
+        if (!allowClickViewRef.current) return;
         if (dragFinishAction) {
             navigate("/sprintPlan");
-            isCanClickAllView.current = false;
+            allowClickViewRef.current = false;
             return;
         }
         if (exampleAnimateEndRef.current) {
             backdropRef.current = null;
             countinueIconRef.current = null;
             setDragAction(true);
-            isCanClickAllView.current = false;
+            allowClickViewRef.current = false;
             return;
         }
         if (isContinue) {
             backdropRef.current = null;
             countinueIconRef.current = null;
             setContinueAction(true);
-            isCanClickAllView.current = false;
+            allowClickViewRef.current = false;
             return;
         }
     };
 
     const isContinueHandler = () => {
-        isCanClickAllView.current = true;
+        allowClickViewRef.current = true;
         setIsContinue(true);
     };
 
@@ -101,7 +101,7 @@ const TodoListPage = () => {
         e.stopPropagation();
         backdropRef.current = "top";
         countinueIconRef.current = true;
-        isCanClickAllView.current = true;
+        allowClickViewRef.current = true;
         setPrepareAction(true);
     };
 
@@ -116,7 +116,8 @@ const TodoListPage = () => {
     const dragEndHandler = (e) => {
         const { source, destination } = e;
 
-        if (!destination || destination.droppableId !== "drop-todoList") return;
+        if (!destination || destination.droppableId !== "drop-teachTodoList")
+            return;
 
         const newDragList = [...dragList];
 
@@ -209,7 +210,11 @@ const TodoListPage = () => {
                         />
                     </div>
                 </RoleWrap>
-                <TalkCard delay={1.5} isContinue={countinueIconRef.current}>
+                <TalkCard
+                    delay={1.5}
+                    isContinue={countinueIconRef.current}
+                    role="po"
+                >
                     <AnimatePresence mode="wait">
                         {!continueAction ? (
                             <TextWrap
@@ -403,7 +408,7 @@ const TodoListPage = () => {
                                                                 duration: 0.5,
                                                             }}
                                                         >
-                                                            <DragCard
+                                                            <TeachDragCard
                                                                 item={item}
                                                                 index={i}
                                                                 dropId="drop-left"
@@ -415,7 +420,7 @@ const TodoListPage = () => {
                                         );
                                     }}
                                 </Droppable>
-                                <ListCard
+                                <TeachCard
                                     title="產品待辦清單"
                                     titleEn="Product Backlog"
                                     w="30%"
@@ -452,7 +457,7 @@ const TodoListPage = () => {
                                                             exampleAnimateEndRef.current = true;
                                                         }}
                                                     >
-                                                        <DragCard
+                                                        <TeachDragCard
                                                             item={item}
                                                             index={i + 2}
                                                             dropId="drop-right"

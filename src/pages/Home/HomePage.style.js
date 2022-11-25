@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const HomePageStyle = styled.section`
+export const HomePageStyle = styled.main`
     background: var(--clr-bg-dark);
 `;
 

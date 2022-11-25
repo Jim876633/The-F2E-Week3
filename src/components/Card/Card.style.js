@@ -8,10 +8,10 @@ export const CardStyle = styled.div`
     border: 2px solid var(--clr-primary);
     border-radius: 4rem;
     box-shadow: 0px 0px 24px 2px var(--clr-primary-80);
-    backdrop-filter: blur(5px);
     padding: 1rem;
     width: ${(props) => props.w || "100%"};
     height: ${(props) => props.h || "100%"};
+    backdrop-filter: blur(5px);
     ${(props) =>
         props.top || props.bottom || props.right || props.left
             ? css`
@@ -41,8 +41,7 @@ export const CardGradientStyle = styled(CardStyle)`
             ? css`
                   border: 2px solid var(--clr-role-sm);
                   background: var(--linear-role-sm), rgba(10, 13, 20, 0.6);
-                  box-shadow: 0px 0px 24px 8px var(--clr-role-sm-80),
-                      0px 0px 8px 4px var(--clr-role-sm-80);
+                  box-shadow: 0px 0px 24px 8px var(--clr-role-sm-80);
               `
             : ""}
     ${(props) =>
@@ -50,8 +49,7 @@ export const CardGradientStyle = styled(CardStyle)`
             ? css`
                   border: 2px solid var(--clr-role-team1);
                   background: var(--linear-role-team1), rgba(10, 13, 20, 0.6);
-                  box-shadow: 0px 0px 24px 8px var(--clr-role-team1),
-                      0px 0px 8px 4px var(--clr-role-team1);
+                  box-shadow: 0px 0px 24px 4px var(--clr-role-team1);
               `
             : ""}
         ${(props) =>
@@ -59,8 +57,7 @@ export const CardGradientStyle = styled(CardStyle)`
             ? css`
                   border: 2px solid var(--clr-role-team2);
                   background: var(--linear-role-team2), rgba(10, 13, 20, 0.6);
-                  box-shadow: 0px 0px 24px 8px var(--clr-role-team2),
-                      0px 0px 8px 4px var(--clr-role-team2);
+                  box-shadow: 0px 0px 24px 4px var(--clr-role-team2);
               `
             : ""};
 `;
@@ -74,7 +71,84 @@ export const CardListStyle = styled(CardStyle)`
     border: none;
     border-radius: 2rem;
     padding: 0;
+    backdrop-filter: none;
+    z-index: auto;
+    span {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            50% 50% at 50% 50%,
+            #00ffe0 0%,
+            rgba(0, 255, 224, 0) 100%
+        );
+        opacity: 0.9;
+        z-index: auto;
+    }
+    ${(props) =>
+        props.type === "sprint"
+            ? css`
+                  background: rgba(255, 122, 0, 0.4);
+                  box-shadow: 12px 12px rgba(255, 122, 0, 0.3),
+                      24px 24px rgba(255, 122, 0, 0.2);
+                  span {
+                      background: radial-gradient(
+                          50% 50% at 50% 50%,
+                          #ffc700 0%,
+                          rgba(255, 199, 0, 0) 100%
+                      );
+                  }
+              `
+            : ""}
 `;
+
+export const CardCircleStyle = styled(CardStyle)`
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 255, 224, 0.3);
+    box-shadow: 12px 12px rgba(0, 255, 224, 0.15);
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            50% 50% at 50% 50%,
+            #00ffe0 0%,
+            rgba(0, 255, 224, 0) 100%
+        );
+        z-index: -1;
+    }
+    ${(props) =>
+        props.role === "mm"
+            ? css`
+                  background: rgba(255, 0, 245, 0.35);
+                  box-shadow: 12px 12px rgba(255, 0, 245, 0.25);
+                  &::after {
+                      content: "";
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      width: 100%;
+                      height: 100%;
+                      background: radial-gradient(
+                          50% 50% at 50% 50%,
+                          #ff00f5 0%,
+                          rgba(255, 45, 247, 0) 100%
+                      );
+                      z-index: -1;
+                  }
+              `
+            : ""}
+`;
+
+//===============================================
 
 export const TitleWrap = styled.div`
     display: grid;
@@ -92,13 +166,22 @@ export const TitleWrap = styled.div`
         color: var(--clr-primary-dark);
         line-height: 1;
     }
+    ${(props) =>
+        props.type === "sprint"
+            ? css`
+                  background: var(--clr-role-team1);
+                  p {
+                      color: var(--clr-role-team2);
+                  }
+              `
+            : ""}
 `;
 
 export const DropWrap = styled.div`
     position: relative;
     width: 100%;
     height: 80%;
-    padding: 1rem 2rem;
+    padding-inline: 2rem;
 `;
 
 export const DragItemWrap = styled.div`
@@ -110,8 +193,7 @@ export const DragItemWrap = styled.div`
     right: 0;
     bottom: 0;
     margin: auto;
-    z-index: -1;
-    padding: 2rem;
+    padding: 2rem 2rem;
     display: grid;
     gap: 2rem;
     div {
@@ -120,9 +202,22 @@ export const DragItemWrap = styled.div`
         border: 2px dashed var(--clr-primary);
         border-radius: 2rem;
     }
+    ${(props) =>
+        props.type === "sprint"
+            ? css`
+                  z-index: 1;
+                  div {
+                      border: 2px dashed var(--clr-role-team1);
+                  }
+                  div:last-child {
+                      border: 2px solid transparent;
+                  }
+              `
+            : ""}
 `;
 
 export const DragItem = styled.div`
+    position: relative;
     display: flex;
     align-items: center;
     top: auto !important;
@@ -130,12 +225,22 @@ export const DragItem = styled.div`
     border: 4px solid var(--clr-primary);
     border-radius: 2rem;
     background: var(--clr-bg-dark-60);
-    height: calc(25% - 2rem);
+    height: calc(25% - 2.5rem);
     padding-inline: 2.4rem;
     margin: 2rem auto;
-    &:nth-child(2) {
-        margin: 1rem auto;
-    }
+    z-index: 5;
+    ${(props) =>
+        props.type === "sprint"
+            ? css`
+                  border: 4px solid var(--clr-role-team1);
+              `
+            : ""}
+    ${(props) =>
+        props.danger
+            ? css`
+                  border: 4px solid var(--clr-danger);
+              `
+            : ""}
 `;
 
 export const EmptyItem = styled.div`

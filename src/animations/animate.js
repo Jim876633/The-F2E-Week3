@@ -10,6 +10,7 @@ export const opacityVariants = {
         opacity: 0,
         transition: {
             duration: 0.2,
+            delay: 0,
         },
     },
 };
@@ -47,14 +48,35 @@ export const upOpacityVariants = {
     },
 };
 
+export const xMoveOpacityVariants = {
+    hidden: (x) => ({
+        opacity: 0,
+        x: x,
+    }),
+    visible: {
+        opacity: 1,
+        x: 0,
+    },
+};
+
 //Scale
 
 export const scaleVariants = {
     hidden: {
         scale: 0,
+        opacity: 1,
+        x: 0,
     },
     visible: {
+        opacity: 1,
         scale: 1,
+        x: 0,
+    },
+    exit: {
+        scale: 0.5,
+        opacity: 0,
+        x: "35rem",
+        transition: { duration: 0.5, delay: 0 },
     },
 };
 
@@ -68,6 +90,37 @@ export const roleVariants = {
     visible: {
         scaleY: [1, 1.2, 1],
         y: 0,
+    },
+    exit: (y) => ({
+        scaleY: 1,
+        y: y,
+        transition: { delay: 0, duration: 0.3 },
+    }),
+};
+
+export const roleBgVariants = {
+    hidden: (y) => ({
+        y: y,
+    }),
+    visible: {
+        y: 0,
+    },
+    exit: (y) => ({
+        y: y,
+        transition: { duration: 0.3, delay: 0 },
+    }),
+};
+
+export const roleHoleVariants = {
+    hidden: {
+        scale: 0,
+    },
+    visible: {
+        scale: 1,
+    },
+    exit: {
+        scale: 0,
+        transition: { durtation: 0.5, delay: 0.5 },
     },
 };
 
@@ -124,5 +177,18 @@ export const exampleOpacityVariants = {
     },
     visible: {
         opacity: 1,
+    },
+};
+
+//Story
+
+export const storySpineVariant = {
+    hidden: {
+        x: 0,
+        y: 0,
+    },
+    visible: {
+        x: "8rem",
+        y: "9rem",
     },
 };
