@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { opacityVariants, upOpacityVariants } from "../../animations/animate";
 import TalkCard from "../../components/Card/TalkCard";
 import Role from "../../components/Role/Role";
@@ -36,6 +36,10 @@ const SprintTodoPage = () => {
     const [continueAction, setContinueAction] = useState(false);
 
     const allowSprintRef = useRef(false);
+
+    const cleanState = () => {
+        setDropsObj(initialDropsObj);
+    };
 
     const finishActionHandler = () => {
         setFinishAction(true);
@@ -86,6 +90,11 @@ const SprintTodoPage = () => {
             allowSprintRef.current = false;
         }
     };
+
+    useEffect(() => {
+        return cleanState();
+    }, []);
+
     return (
         <SprintTodoPageStyle onClick={continueClickHandler}>
             <AnimatePresence>

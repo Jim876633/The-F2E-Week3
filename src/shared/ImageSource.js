@@ -60,6 +60,8 @@ import img_sprint from "../assets/images/Attached pic/img_sprint.png";
 import img_sprint_plan from "../assets/images/Attached pic/planning_sprint.png";
 import img_sprint_planPoint from "../assets/images/Attached pic/planning_point.png";
 import img_sprint_team from "../assets/images/Attached pic/planning_team.png";
+import img_sprint_retro from "../assets/images/Attached pic/sprint_retro.png";
+import img_sprint_process from "../assets/images/Attached pic/sprint_process.png";
 import img_jira from "../assets/images/Attached pic/jira.png";
 import img_jira_w from "../assets/images/Attached pic/jira_w.png";
 import img_sprint_daily from "../assets/images/Attached pic/sprint_daily.png";
@@ -78,6 +80,7 @@ import img_time_13 from "../assets/images/Attached pic/time_13.png";
 import img_time_21 from "../assets/images/Attached pic/time_21.png";
 import arrow from "../assets/images/Attached pic/arrow.svg";
 import hand from "../assets/images/Attached pic/hand.svg";
+import confluence from "../assets/images/Attached pic/logo_confluence_w.svg";
 
 //=======================================================================
 //GIF
@@ -128,6 +131,8 @@ export {
     img_sprint_plan,
     img_sprint_planPoint,
     img_sprint_team,
+    img_sprint_retro,
+    img_sprint_process,
     img_jira,
     img_jira_w,
     img_sprint_daily,
@@ -146,6 +151,7 @@ export {
     img_time_21,
     arrow,
     hand,
+    confluence,
     gif_loading,
     gif_po,
     gif_sm,

@@ -31,7 +31,8 @@ const GlobalStyle = createGlobalStyle`
     --clr-role-sm-dark:rgb(76,0,113);
     --clr-role-sm-tint:rgb(255,0,245);
     --clr-role-team1:rgb(255,199,0);
-    --clr-role-team2:rgb(147,53,0);
+    --clr-role-team2:rgba(255, 92, 0, 1);
+    --clr-role-team-dark: rgba(147,53,0,1);
 
     --clr-bg-dark:rgb(10,13,20);
     --clr-bg-dark-80:rgba(10,13,20,0.8);
@@ -128,13 +129,11 @@ p{
     font-size: var(--fz-body);
     line-height: 1.8;
 }
-body{
-    overflow: hidden;
-}
 main{
     position: relative;
     width:max(100vw,100rem);
     height:max(100vh,60rem);
+    overflow: hidden;
 }
 section{
     position: relative;

@@ -43,7 +43,7 @@ const Image = ({
             onAnimationComplete={complete}
             data-title={text}
         >
-            <img src={src} alt={alt || ""} />
+            <img src={src} alt={alt || ""} draggable={false} />
         </ImageWrap>
     );
 };

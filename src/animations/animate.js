@@ -80,6 +80,15 @@ export const scaleVariants = {
     },
 };
 
+export const xScaleVariants = {
+    hidden: {
+        scaleX: 0,
+    },
+    visible: {
+        scaleX: 1,
+    },
+};
+
 //Role
 
 export const roleVariants = {

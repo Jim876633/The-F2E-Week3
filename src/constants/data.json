@@ -134,7 +134,130 @@
     "sprintIntroPage": {
         "p1": "等等等等等 ， 你都還不知道什麼是 Sprint 吧 ！ 讓我先為你介紹一下～仔細聽好唷 ， 等等會考考你 ！",
         "p2": [
-            "Sprint 是一個短衝 ， 開發團隊會在這期間執行開發 。 在這段期間內 ， 開發團隊舉辦每日站立會議 (Daily Scrum) ， 追蹤成員間的工作狀況 ， 在 Sprint 的結束也會包含短衝檢視會議 (Sprint Review) 以及短衝自省會議 (Sprint Retrospective) 。"
+            "Sprint 是一個短衝 ， 開發團隊會在這期間執行開發 。 在這段期間內 ， 開發團隊舉辦",
+            "每日站立會議 (Daily Scrum)",
+            " ， 追蹤成員間的工作狀況 ， 在 Sprint 的結束也會包含",
+            "短衝檢視會議 (Sprint Review)",
+            " 以及",
+            "短衝自省會議 (Sprint Retrospective) 。"
+        ],
+        "p3": "優化工作流程、讓團隊有變得更好的機會。",
+        "p4": ["推薦工具 ： ", "confluence"],
+        "p5": "換你來試試看吧 ！",
+        "p6": "在這經典的 Surum 流程圖中 ， 這些流程分別代表哪一個會議呢 ？",
+        "p7": "提示 ： 把右側的三個流程拖移至正確的位置上吧 ！",
+        "p8": "哼哼沒想到你這麼快就學會惹 ， 快結束了加油加油 ！",
+        "introduce": [
+            {
+                "title": "每日站立會議",
+                "titleEn": "Daily Scrum",
+                "content": [
+                    {
+                        "type": "p",
+                        "text": "每天都要進行的會議 ， 以15分鐘為限制"
+                    },
+                    {
+                        "type": "li",
+                        "text": [
+                            "昨天為團隊的短衝目標 (Sprint Goal)做了那些進度",
+                            "今天我會如何準備來幫助團隊達到短衝目標",
+                            "過程中有遇到什麼問題、難題"
+                        ]
+                    },
+                    {
+                        "type": "p",
+                        "text": "透過團隊分享 ， 追蹤大家的工作狀況。"
+                    }
+                ]
+            },
+            {
+                "title": "短衝檢視會議",
+                "titleEn": "Sprint Review",
+                "content": [
+                    {
+                        "type": "p",
+                        "text": "用來檢視該次短衝增量的成果 ， 以蒐集相關的回饋數據或意見 。"
+                    }
+                ]
+            },
+            {
+                "title": "短衝自省會議",
+                "titleEn": "Sprint Retrospective",
+                "content": [
+                    {
+                        "type": "p",
+                        "text": "團隊在自省會議裡 , 會共同回顧該短衝歷程發生的事情"
+                    },
+                    {
+                        "type": "li",
+                        "text": [
+                            "好的地方",
+                            "可以改進的地方",
+                            "如何維持我們已有的成功經驗"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "sprintExitList": [
+            { "title": "產品待辦清單", "titleEn": "Product Backlog" },
+            { "title": "短衝規劃會議", "titleEn": "Sprint Planning" },
+            { "title": "短衝待辦清單", "titleEn": "Sprint Backlog" },
+            { "title": "短衝", "titleEn": "Sprint" }
+        ],
+        "sprintDragList": [
+            {
+                "id": "sprint-todo-1",
+                "answerId": 1,
+                "title": "每日站立會議",
+                "titleEn": "Daily Scrum"
+            },
+            {
+                "id": "sprint-todo-2",
+                "answerId": 0,
+                "title": "短衝檢視會議",
+                "titleEn": "Sprint Review"
+            },
+            {
+                "id": "sprint-todo-3",
+                "answerId": 2,
+                "title": "短衝自省會議",
+                "titleEn": "Sprint Retrospective"
+            }
         ]
+    },
+    "retroPage": {
+        "p1": "嗚啊啊新來的 ， 你真的很幸運 ， 今天剛好是開發 B 組的 Retro ， 你也來見識一下 ，  看看 Retro 都該做些什麼吧～～ ",
+        "p2": "我們會在會議裡請團隊成員提出哪些是做得好的地方 、 哪些可以繼續改善的地方 ？ 並記錄再 Confluence 中 。 Retro 重點在於「正面表述」， 你也思考看看 ， 哪一些是適合 Retro 的回饋呢 ？",
+        "p3": "太酷ㄌ吧 ， 根本天才 ， 畢業之後不要忘記我唷>< !",
+        "question": [
+            {
+                "title": "Q1.做得好的地方?",
+                "content": [
+                    {
+                        "role": "mm",
+                        "text": "這次我幫了很多人救火耶～ "
+                    },
+                    {
+                        "role": "po",
+                        "text": "大家在開發上都會互相 cover ， 讓任務都有準在時間內完成 。"
+                    }
+                ]
+            },
+            {
+                "title": "Q2.有哪些可以做得更好？",
+                "content": [
+                    {
+                        "role": "gg",
+                        "text": "可以記錄這次的開發時間 ， 讓預估團隊點數可以更精準 。"
+                    },
+                    {
+                        "role": "ee",
+                        "text": "開發時間預估不準確 ， 請後端下次改進 ， 避免 delay 到我 。"
+                    }
+                ]
+            }
+        ],
+        "answer": ["po", "gg"]
     }
 }

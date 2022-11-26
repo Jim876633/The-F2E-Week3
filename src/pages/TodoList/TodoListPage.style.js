@@ -35,16 +35,16 @@ export const BackDropStyle = styled.div`
 export const TopWrap = styled.div`
     width: 100%;
     height: 22rem;
-    padding: 4rem 3rem;
+    padding: 4rem 8rem;
     display: flex;
     align-items: flex-start;
-    gap: 3rem;
+    gap: 5rem;
 `;
 
 export const BottomWrap = styled.div`
     position: relative;
     width: 100%;
-    height: 100%;
+    height: calc(100% - 22rem);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,12 +55,25 @@ export const RoleWrap = styled.div`
     width: 25rem;
     height: 30rem;
     flex-shrink: 0;
+    ${(props) =>
+        props.size === "sm"
+            ? css`
+                  width: 15rem;
+                  height: 20.5rem;
+              `
+            : ""}
     & > div:nth-child(2) {
         position: absolute;
         top: 2rem;
         width: 100%;
         height: 100%;
         overflow-y: clip;
+        ${(props) =>
+            props.role === "mm"
+                ? css`
+                      top: -2rem;
+                  `
+                : ""}
     }
 `;
 

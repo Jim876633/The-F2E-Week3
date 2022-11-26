@@ -13,7 +13,7 @@ const CountBar = styled.div`
     place-content: center;
     height: 2.4rem;
     border-radius: 10rem;
-    background: var(--clr-role-team2);
+    background: var(--clr-role-team-dark);
     & > span {
         top: 0.4rem;
         left: 0.4rem;

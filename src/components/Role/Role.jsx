@@ -25,12 +25,13 @@ const roleList = {
     gg: { role: role_team2, bg: role_team2_bg },
 };
 
-const Role = ({ role, delay, complete }) => {
+const Role = ({ role, delay, complete, size }) => {
     return (
-        <RoleWrap>
+        <RoleWrap size={size} role={role}>
             <Image
                 src={hole}
                 key="hole"
+                bottom={role === "mm" ? "0rem" : "none"}
                 variants={roleHoleVariants}
                 initial="hidden"
                 animate="visible"
@@ -42,6 +43,7 @@ const Role = ({ role, delay, complete }) => {
                 <Image
                     src={roleList[role].bg}
                     top="-1rem"
+                    bottom={role === "mm" ? "-2rem" : "none"}
                     w="120%"
                     left="-10%"
                     key="role"
@@ -49,18 +51,18 @@ const Role = ({ role, delay, complete }) => {
                     initial="hidden"
                     animate="visible"
                     exit="exit"
-                    custom={"-100%"}
+                    custom={role === "mm" ? "100%" : "-100%"}
                     transition={{ duration: 0.3, delay: delay ? delay + 1 : 1 }}
                 />
                 <Image
                     src={roleList[role].role}
-                    bottom="7rem"
-                    style={{ originY: 0 }}
+                    bottom={role === "mm" ? "-1rem" : "7rem"}
+                    style={{ originY: role === "mm" ? 1 : 0 }}
                     variants={roleVariants}
                     initial="hidden"
                     animate="visible"
                     exit="exit"
-                    custom={"-100%"}
+                    custom={role === "mm" ? "100%" : "-100%"}
                     transition={{
                         duration: 0.3,
                         delay: delay ? delay + 1 : 1,

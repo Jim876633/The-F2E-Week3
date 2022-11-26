@@ -69,6 +69,11 @@ const TodoListPage = () => {
 
     const navigate = useNavigate();
 
+    //FIXME:
+    const cleanState = () => {
+        setDragList(initialDragList);
+    };
+
     const allViewClickHandler = () => {
         if (!allowClickViewRef.current) return;
         if (dragFinishAction) {
@@ -158,6 +163,13 @@ const TodoListPage = () => {
             }
         }
     };
+    //FIXME:
+    useEffect(() => {
+        return () => {
+            console.log("hi");
+            cleanState();
+        };
+    }, []);
 
     return (
         <TodoListPageStyle onClick={allViewClickHandler}>
