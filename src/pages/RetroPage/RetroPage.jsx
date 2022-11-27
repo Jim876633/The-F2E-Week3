@@ -198,7 +198,7 @@ const RetroPage = () => {
                     <ButtonPrimaryStyle
                         title="我選好了"
                         right="5rem"
-                        bottom="6rem"
+                        bottom="10rem"
                         as={motion.button}
                         variants={opacityVariants}
                         initial="hidden"

@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { opacityVariants, upOpacityVariants } from "../../animations/animate";
 import TalkCard from "../../components/Card/TalkCard";
 import Role from "../../components/Role/Role";
@@ -19,7 +19,6 @@ import {
     ButtonPrimaryStyle,
     ButtonStyle,
 } from "../../components/Button/Button.style";
-import { CardListStyle } from "../../components/Card/Card.style";
 import { useNavigate } from "react-router-dom";
 
 const { p1, p2, p3, p4, todoList } = data.sprintTodoPage;
@@ -29,7 +28,9 @@ const initialDropsObj = { drop_todoSourceList: todoList, drop_todoList: [] };
 const SprintTodoPage = () => {
     const navigate = useNavigate();
 
-    const [dropsObj, setDropsObj] = useState(initialDropsObj);
+    const [dropsObj, setDropsObj] = useState(
+        JSON.parse(JSON.stringify(initialDropsObj))
+    );
 
     const [finishAction, setFinishAction] = useState(false);
 
@@ -90,10 +91,6 @@ const SprintTodoPage = () => {
             allowSprintRef.current = false;
         }
     };
-
-    useEffect(() => {
-        return cleanState();
-    }, []);
 
     return (
         <SprintTodoPageStyle onClick={continueClickHandler}>

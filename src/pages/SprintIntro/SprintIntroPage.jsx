@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { opacityVariants, upOpacityVariants } from "../../animations/animate";
 import TalkCard from "../../components/Card/TalkCard";
 import Role from "../../components/Role/Role";
@@ -41,6 +41,11 @@ const {
 } = data.sprintIntroPage;
 
 const emptyDragList = [];
+
+const initialDragObj = {
+    drop_empty: emptyDragList,
+    drop_todo: sprintDragList,
+};
 
 // step: start => introduction => toolRecommand => practice => finish => nextPage
 
@@ -147,20 +152,15 @@ const getRoleText = (state, animationEndHandler) => {
 const SprintIntroPage = () => {
     const navigate = useNavigate();
 
-    const [dragObj, setDragObj] = useState({
-        drop_empty: emptyDragList,
-        drop_todo: sprintDragList,
-    });
+    const [dragObj, setDragObj] = useState(
+        JSON.parse(JSON.stringify(initialDragObj))
+    );
 
     const [stepState, setStepState] = useState("start");
 
     const finishRef = useRef(false);
 
     const allowClickViewRef = useRef(false);
-
-    const cleanState = () => {
-        setDragObj({ drop_empty: emptyDragList, drop_todo: sprintDragList });
-    };
 
     const allowClickHandler = () => {
         allowClickViewRef.current = true;
@@ -250,10 +250,6 @@ const SprintIntroPage = () => {
             finishRef.current = true;
         }
     };
-
-    useEffect(() => {
-        return cleanState();
-    }, []);
 
     return (
         <SprintIntroPageStyle onClick={viewClickHandler}>

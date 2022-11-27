@@ -38,13 +38,13 @@ import { useNavigate } from "react-router-dom";
 
 const { p1, p2, p3, p4, p5, p6, todoList } = data.todoListPage;
 
-const initialDragList = todoList.map((item) => {
-    return { ...item, dragId: item.id, isDrag: false };
-});
-
-const initialTodoList = [...todoList];
-
 const TodoListPage = () => {
+    const initialTodoList = JSON.parse(JSON.stringify(todoList));
+
+    const initialDragList = JSON.parse(JSON.stringify(todoList)).map((item) => {
+        return { ...item, dragId: item.id, isDrag: false };
+    });
+
     const [isContinue, setIsContinue] = useState(false);
 
     const [continueAction, setContinueAction] = useState(false);
@@ -57,6 +57,10 @@ const TodoListPage = () => {
 
     const [dragList, setDragList] = useState(initialDragList);
 
+    const [isDragFinish, setIsDragFinish] = useState(false);
+
+    const initialTodoListRef = useRef(initialTodoList);
+
     const allowClickViewRef = useRef(false);
 
     const backdropRef = useRef("top");
@@ -65,14 +69,7 @@ const TodoListPage = () => {
 
     const exampleAnimateEndRef = useRef(false);
 
-    const isDragFinishRef = useRef(false);
-
     const navigate = useNavigate();
-
-    //FIXME:
-    const cleanState = () => {
-        setDragList(initialDragList);
-    };
 
     const allViewClickHandler = () => {
         if (!allowClickViewRef.current) return;
@@ -128,7 +125,7 @@ const TodoListPage = () => {
 
         const newInitialDragList = [...initialDragList];
 
-        if (source.droppableId === "drop-todoList") {
+        if (source.droppableId === "drop-teachTodoList") {
             // dragList 內部拖拉
             const [dragItem] = newDragList.splice(source.index, 1);
 
@@ -139,7 +136,7 @@ const TodoListPage = () => {
             // 從外面拖拉到 dragList
 
             //移除外面 dragItem
-            initialTodoList[source.index].isDrag = false;
+            initialTodoListRef.current[source.index].isDrag = false;
 
             //裡面的 dragItem 顯示
             const [dragItem] = newInitialDragList.splice(source.index, 1);
@@ -153,23 +150,18 @@ const TodoListPage = () => {
             filterDragList.splice(destination.index, 0, dragItem);
 
             setDragList(filterDragList);
-
-            //判斷是否全部的 dragItem 都拖拉進去
-
-            const isDragCount = dragList.every((item) => item.isDrag);
-
-            if (isDragCount) {
-                isDragFinishRef.current = true;
-            }
         }
     };
-    //FIXME:
+
     useEffect(() => {
-        return () => {
-            console.log("hi");
-            cleanState();
-        };
-    }, []);
+        //判斷是否全部的 dragItem 都拖拉進去
+
+        const isDragCount = dragList.every((item) => item.isDrag);
+
+        if (isDragCount) {
+            setIsDragFinish(true);
+        }
+    }, [dragList]);
 
     return (
         <TodoListPageStyle onClick={allViewClickHandler}>
@@ -402,7 +394,7 @@ const TodoListPage = () => {
                                                 {...provided.droppableProps}
                                                 ref={provided.innerRef}
                                             >
-                                                {initialTodoList
+                                                {initialTodoListRef.current
                                                     .slice(0, 2)
                                                     .map((item, i) => (
                                                         <motion.div
@@ -447,7 +439,7 @@ const TodoListPage = () => {
                                             ref={provided.innerRef}
                                             style={{ width: "35%" }}
                                         >
-                                            {initialTodoList
+                                            {initialTodoListRef.current
                                                 .slice(2, 4)
                                                 .map((item, i) => (
                                                     <motion.div
@@ -466,6 +458,7 @@ const TodoListPage = () => {
                                                             duration: 1,
                                                         }}
                                                         onAnimationComplete={() => {
+                                                            isContinueHandler();
                                                             exampleAnimateEndRef.current = true;
                                                         }}
                                                     >
@@ -532,7 +525,7 @@ const TodoListPage = () => {
                     animate="visible"
                     transition={{ duration: 0.2, delay: 0 }}
                     onClick={dragFinishHandler}
-                    disabled={!isDragFinishRef.current}
+                    disabled={!isDragFinish}
                 >
                     我完成了
                 </ButtonPrimaryStyle>
