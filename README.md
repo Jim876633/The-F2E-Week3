@@ -1,16 +1,19 @@
-# The F2E Week 1 - 活動網站設計
+# The F2E Week 3 - Scrum 新手村
 
 The F2E 4th 官網 redesign。
 
-[💻 Live Demo](https://jim-the-f2e-week1.netlify.app/)
+[💻 Live Demo]()
 
-[🎨 Design provider](https://2022.thef2e.com/users/12061549261447630282)
+[🎨 Design provider](https://2022.thef2e.com/users/12061549261454740203)
 
 ## 作品說明
 
-![](./screenshot/video.gif)
+✨ Scrum 新手村小遊戲！透過簡單的拖曳小遊戲，讓不懂 Scrum 的新手可以快速了解 Scrum 流程。
 
-使用 Framer Motion 做出符合 UI 設計的效果。
+![](./src/assets/images/cover/screenshot.jpeg)
+
+-   使用 React-beautiful-dnd 做出拖曳元件交換元件的效果。
+-   使用 Framer motion 做出符合 UI 設計的動畫。
 
 ## 資料夾說明
 
@@ -21,8 +24,10 @@ src
  |_assets - 圖檔、字體
  |_components - React 元件
  |_constants - 常數
- |_hook - customer hook
+ |_hooks - customer hook
+ |_layouts - 共用 layout
  |_pages - 畫面
+ |_shared - 共用樣式、圖片
  |_utils - 通用函數
 
 ```
@@ -35,6 +40,4 @@ src
 
 ## 第三方服務
 
--   [React Icons](https://react-icons.github.io/react-icons) - For import icons.
--   [React Scroll](https://github.com/fisshy/react-scroll) - For scroll to element.
--   [React String Replace](https://github.com/iansinnott/react-string-replace) - For replace string to react components.
+-   [React Beautiful Dnd](https://github.com/atlassian/react-beautiful-dnd) - For element drag and drop.
