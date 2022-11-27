@@ -203,3 +203,18 @@ export const storySpineVariant = {
         opacity: 0,
     },
 };
+
+//LightDot
+
+export const lightDotVariants = {
+    hidden: {
+        opacity: 0,
+        x: 0,
+        y: 0,
+    },
+    visible: (i) => ({
+        opacity: [1, 0.8, 0.5],
+        x: [0, 5 * i, 0, 5 * i, 0],
+        y: [0, 5 * i, 10 * i, 5 * i, 0],
+    }),
+};

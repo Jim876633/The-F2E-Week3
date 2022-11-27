@@ -25,7 +25,7 @@ import { CardStyle } from "../../components/Card/Card.style";
 import { ButtonPrimaryStyle } from "../../components/Button/Button.style";
 
 const { p1, p2 } = data.homePage;
-const imageListFont = [
+const imageListFront = [
     {
         id: "leftTop",
         src: bg_tint_lt,
@@ -145,7 +145,7 @@ const HomePage = () => {
                 ))}
             </div>
             <div>
-                {imageListFont.map((item) => (
+                {imageListFront.map((item) => (
                     <Image
                         key={item.id}
                         {...item}

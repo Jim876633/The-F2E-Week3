@@ -8,8 +8,6 @@ import SprintIntroPage from "./pages/SprintIntro/SprintIntroPage";
 import RetroPage from "./pages/RetroPage/RetroPage";
 import Footer from "./components/Footer/Footer";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
-import { AnimatePresence } from "framer-motion";
-import { useEffect } from "react";
 import BackLayout from "./layouts/BackLayout";
 
 function App() {

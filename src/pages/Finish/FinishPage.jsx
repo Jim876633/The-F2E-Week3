@@ -1,11 +1,18 @@
 import React from "react";
 import {
+    lightDotVariants,
     opacityVariants,
     scaleVariants,
     xScaleVariants,
 } from "../../animations/animate";
 import Image from "../../components/Image/Image";
-import { logo_txt } from "../../shared/ImageSource";
+import {
+    logo_dot_blue,
+    logo_dot_purple,
+    logo_dot_red,
+    logo_dot_yellow,
+    logo_txt,
+} from "../../shared/ImageSource";
 import {
     FinishPageStyle,
     RoleListWrap,
@@ -26,6 +33,17 @@ const roleList = {
     ],
 };
 
+const lightDotList = [
+    { src: logo_dot_blue, top: "2%", left: "20%", position: -2 },
+    { src: logo_dot_purple, top: "17%", left: "5%", position: 3 },
+    { src: logo_dot_red, top: "32%", left: "20%", position: -1 },
+    { src: logo_dot_yellow, top: "47%", left: "5%", position: 1 },
+    { src: logo_dot_yellow, top: "2%", left: "70%", position: 2 },
+    { src: logo_dot_red, top: "17%", left: "85%", position: 1 },
+    { src: logo_dot_blue, top: "32%", left: "70%", position: -1 },
+    { src: logo_dot_purple, top: "47%", left: "85%", position: -3 },
+];
+
 const FinishPage = () => {
     const navigate = useNavigate();
 
@@ -35,6 +53,25 @@ const FinishPage = () => {
 
     return (
         <FinishPageStyle>
+            {lightDotList.map((item, i) => (
+                <Image
+                    key={i}
+                    src={item.src}
+                    w="13rem"
+                    top={item.top}
+                    left={item.left}
+                    variants={lightDotVariants}
+                    initial="hidden"
+                    animate="visible"
+                    custom={item.position}
+                    transition={{
+                        durtation: 2,
+                        repeat: Infinity,
+                        repeatType: "reverse",
+                        ease: [0.17, 0.5, 1, 1],
+                    }}
+                />
+            ))}
             <Image
                 src={logo_txt}
                 w="60rem"
