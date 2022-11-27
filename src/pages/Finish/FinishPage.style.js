@@ -4,7 +4,7 @@ import { CardGradientStyle } from "../../components/Card/Card.style";
 export const FinishPageStyle = styled.section`
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     button {
         color: var(--clr-primary);

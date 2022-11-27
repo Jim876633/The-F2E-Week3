@@ -5,7 +5,7 @@ export const QuestionItemStyle = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-basis: 60rem;
+    flex-basis: 55rem;
 `;
 
 export const TitleWrap = styled.span`

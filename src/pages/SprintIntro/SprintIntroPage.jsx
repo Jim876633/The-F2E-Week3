@@ -321,7 +321,7 @@ const SprintIntroPage = () => {
             </AnimatePresence>
             <BottomWrap
                 style={{
-                    paddingInline: "15rem",
+                    paddingInline: "15rem 25rem",
                     gap: "8rem",
                 }}
             >

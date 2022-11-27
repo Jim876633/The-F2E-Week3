@@ -131,9 +131,9 @@ p{
 }
 main{
     position: relative;
-    width:max(100vw,100rem);
-    height:max(100vh,60rem);
     overflow: hidden;
+    width:max(100vw,1020px);
+    height:max(100vh,660px);
 }
 section{
     position: relative;
@@ -144,6 +144,17 @@ section{
         font-family: globalfont;
         src: url(${globalfont});
     }
+
+@media (max-height:665px) {
+    html{
+        font-size: 46.875%;
+    }
+}
+@media (max-height:768px) {
+    html{
+        font-size: 50%;
+    }
+}
 
 `;
 

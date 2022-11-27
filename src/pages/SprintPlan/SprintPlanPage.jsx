@@ -496,8 +496,13 @@ const SprintPlanPage = () => {
                                 variants={storySpineVariant}
                                 initial="hidden"
                                 animate="visible"
-                                transition={{ duration: 0.5, delay: 0.5 }}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: 0.5,
+                                    opacity: { delay: 3 },
+                                }}
                             />
+
                             <AnimatePresence>
                                 {!step5Action ? (
                                     <Image

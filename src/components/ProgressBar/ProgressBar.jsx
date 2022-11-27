@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Bar, ProgressBarStyle } from "./ProgressBar.style";
 
 const ProgressBar = ({ location }) => {
+    const progressRef = useRef();
+
+    const [barWidth, setBarWidth] = useState();
+
     const pathName = [
         "/",
         "/todoList",
@@ -16,11 +20,15 @@ const ProgressBar = ({ location }) => {
         (el) => el.toLowerCase() === location.pathname.toLowerCase()
     );
 
-    const width = (window.innerWidth / 6) * index;
+    useEffect(() => {
+        const viewWidth = progressRef.current.offsetWidth;
+        const width = (viewWidth / 6) * index;
+        setBarWidth(width);
+    }, [index]);
 
     return (
-        <ProgressBarStyle>
-            <Bar width={width} />
+        <ProgressBarStyle ref={progressRef}>
+            <Bar width={barWidth} />
         </ProgressBarStyle>
     );
 };

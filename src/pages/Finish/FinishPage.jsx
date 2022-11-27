@@ -41,7 +41,7 @@ const FinishPage = () => {
                 variants={scaleVariants}
                 initial="hidden"
                 animate="visible"
-                style={{ margin: 0 }}
+                style={{ margin: "-5rem 0 0 " }}
             />
             <motion.h2
                 variants={opacityVariants}

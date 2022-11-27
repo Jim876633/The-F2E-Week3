@@ -182,7 +182,14 @@ const RetroPage = () => {
                     </TopWrap>
                 ) : null}
             </AnimatePresence>
-            <BottomWrap style={{ alignItems: "flex-start", gap: "10rem" }}>
+            <BottomWrap
+                style={{
+                    alignItems: "flex-start",
+                    gap: "10rem",
+                    paddingTop: "5rem",
+                    paddingRight: "10rem",
+                }}
+            >
                 {stepState === "question"
                     ? question.map((item, i) => (
                           <QuestionItem
@@ -198,7 +205,7 @@ const RetroPage = () => {
                     <ButtonPrimaryStyle
                         title="我選好了"
                         right="5rem"
-                        bottom="10rem"
+                        bottom="8rem"
                         as={motion.button}
                         variants={opacityVariants}
                         initial="hidden"

@@ -195,9 +195,11 @@ export const storySpineVariant = {
     hidden: {
         x: 0,
         y: 0,
+        opacity: 1,
     },
     visible: {
         x: "8rem",
         y: "9rem",
+        opacity: 0,
     },
 };

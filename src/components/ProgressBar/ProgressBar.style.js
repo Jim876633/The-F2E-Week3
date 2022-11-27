@@ -5,7 +5,7 @@ export const ProgressBarStyle = styled.div`
     top: 0;
     left: 0;
     height: 1.2rem;
-    width: 100%;
+    width: max(100vw, 1020px);
     background-color: var(--clr-primary-dark);
     z-index: 20;
 `;

@@ -8,7 +8,7 @@ import { SprintTitleWrap } from "../SprintIntroItem/SprintIntroItem.style";
 const DropWrap = styled.div`
     position: absolute;
     top: 23rem;
-    left: 43rem;
+    left: 48rem;
     width: 80rem;
     height: 30rem;
     div {

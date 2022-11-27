@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const FooterStyle = styled.footer`
     position: absolute;
-    bottom: 0;
-    width: 100%;
+    top: calc(max(100vh, 660px) - 4.4rem);
+    width: max(100vw, 1020px);
     height: 4.4rem;
     text-align: center;
     line-height: 4.4rem;

@@ -5,8 +5,6 @@ import { bg_village } from "../shared/ImageSource";
 
 const BackgroundStyle = styled.main`
     position: relative;
-    width: 100vw;
-    height: 100vh;
     background: url(${bg_village});
     background-repeat: no-repeat;
     background-size: cover;
