@@ -2,7 +2,7 @@
 
 The F2E 4th 官網 redesign。
 
-[💻 Live Demo]()
+[💻 Live Demo](https://jim-the-f2e-week3-scrum.netlify.app/)
 
 [🎨 Design provider](https://2022.thef2e.com/users/12061549261454740203)
 
@@ -35,6 +35,7 @@ src
 ## 使用技術
 
 -   [React](https://reactjs.org/) - JS library.
+-   [React Router](https://reactrouter.com/en/main) - For router page.
 -   [Styled Components](https://styled-components.com/) - For styles.
 -   [Framer Motion](https://www.framer.com/motion/) - For animation.
 
